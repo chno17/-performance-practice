@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+</head>
+<body>
+    <h1>숫자 맞추기 게임</h1>
+    <p>0에서 100 사이의 숫자를 맞춰보세요!</p>
+    <input type="number" id="userInput">
+    <button onclick="checkNumber()">확인</button>
+    <p id="message"></p>
+
+    <script>
+        // 0에서 100 사이의 임의의 숫자를 생성
+        const randomNumber = Math.floor(Math.random() * 101);
+
+        function checkNumber() {
+            // 사용자 입력값 가져오기
+            const userInput = parseInt(document.getElementById('userInput').value);
+            
+            // 결과 메시지를 표시할 요소
+            const message = document.getElementById('message');
+            
+            // 입력값과 임의의 숫자를 비교
+            if (userInput === randomNumber) {
+                message.textContent = '축하합니다! 숫자를 맞추셨습니다.';
+            } else if (userInput < randomNumber) {
+                message.textContent = '더 큰 숫자를 입력해보세요.';
+            } else {
+                message.textContent = '더 작은 숫자를 입력해보세요.';
+            }
+        }
+    </script>
+</body>
+</html>

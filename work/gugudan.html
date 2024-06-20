@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 표</title>
+</head>
+<body>
+    <h1>구구단 표</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>X</th>
+                <!-- 1부터 9까지의 숫자 헤더 -->
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+            </tr>
+        </thead>
+        <tbody id="multiplicationTable">
+            <!-- 결과가 여기에 표시됩니다. -->
+        </tbody>
+    </table>
+
+    <script>
+        function populateTable() {
+            const tableBody = document.getElementById('multiplicationTable');
+            // 1부터 9까지의 곱셈표 생성
+            for (let i = 1; i <= 9; i++) {
+                const row = document.createElement('tr');
+                // 첫 번째 열에 i 값을 표시
+                const headerCell = document.createElement('th');
+                headerCell.textContent = i;
+                row.appendChild(headerCell);
+                // 1부터 9까지 곱한 값을 표시
+                for (let j = 1; j <= 9; j++) {
+                    const cell = document.createElement('td');
+                    cell.textContent = i * j;
+                    row.appendChild(cell);
+                }
+                // 생성된 행을 표에 추가
+                tableBody.appendChild(row);
+            }
+        }
+        // 페이지 로드 시 표를 채움
+        window.onload = populateTable;
+    </script>
+</body>
+</html>

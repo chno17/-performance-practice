@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toCfromF</title>
+</head>
+<body>
+    <h1>섭씨를 화씨로 변환</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>섭씨 (°C)</th>
+                <th>화씨 (°F)</th>
+            </tr>
+        </thead>
+        <tbody id="temperatureTable">
+        </tbody>
+    </table>
+
+    <script>
+        // 섭씨를 화씨로 변환하는 함수
+        function celsiusToFahrenheit(celsius) {
+            return (celsius * 9/5) + 32;
+        }
+
+        // 표에 섭씨와 화씨를 출력하는 함수
+        function populateTable() {
+            const tableBody = document.getElementById('temperatureTable');
+
+            // 0도부터 10도까지 반복
+            for (let celsius = 0; celsius <= 10; celsius++) {
+                const fahrenheit = celsiusToFahrenheit(celsius);
+
+                // 새로운 행을 생성
+                const row = document.createElement('tr');
+
+                // 섭씨 열 생성 및 추가
+                const celsiusCell = document.createElement('td');
+                celsiusCell.textContent = celsius;
+                row.appendChild(celsiusCell);
+
+                // 화씨 열 생성 및 추가
+                const fahrenheitCell = document.createElement('td');
+                fahrenheitCell.textContent = fahrenheit.toFixed(1); // 소수점 한 자리로 표시
+                row.appendChild(fahrenheitCell);
+
+                // 행을 표에 추가
+                tableBody.appendChild(row);
+            }
+        }
+
+        // 페이지 로드 시 표를 채움
+        window.onload = populateTable;
+    </script>
+</body>
+</html>

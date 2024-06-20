@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>add</title>
+</head>
+<body>
+    <h1>덧셈 계산기</h1>
+    <p>첫번째 정수 : </p>
+    <input type="number" id="first">
+    <p>두번째 정수 : </p>
+    <input type="number" id="second">
+    <p>결과 : <span id="result"></span></p>
+    <button onclick="add()">계산</button>
+    <script>
+        function add(){            
+            const first = parseInt(document.getElementById('first').value);
+            const second = parseInt(document.getElementById('second').value);
+            const result = first + second;
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
